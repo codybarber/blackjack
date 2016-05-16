@@ -118,6 +118,8 @@ function resetGame() {
   $('#messages').text("");
   $('#playerHand').html("");
   $('#dealerHand').html("");
+  $('#hitButton').prop('disabled', false);
+  $('#standButton').prop('disabled', false);
 }
 
 function dealCard(hand, element) {
@@ -141,11 +143,15 @@ function checkForBust() {
   var playerPoints = calculatePoints(playerHand);
   if (playerPoints > 21) {
     $('#messages').text("You Busted!");
+    $('#hitButton').prop('disabled', true);
+    $('#standButton').prop('disabled', true);
     return true;
   }
   var dealerPoints = calculatePoints(dealerHand);
   if (dealerPoints > 21) {
     $('#messages').text("Dealer Busted! You Win!");
+    $('#hitButton').prop('disabled', true);
+    $('#standButton').prop('disabled', true);
     return true;
   }
   return false;
@@ -180,10 +186,16 @@ $(function() {
       var dealerPoints = calculatePoints(dealerHand);
       if (playerPoints > dealerPoints) {
         $('#messages').text('You Won!');
+        $('#hitButton').prop('disabled', true);
+        $('#standButton').prop('disabled', true);
       } else if (playerPoints === dealerPoints) {
         $('#messages').text('Push');
+        $('#hitButton').prop('disabled', true);
+        $('#standButton').prop('disabled', true);
       } else {
         $('#messages').text('You Lose!');
+        $('#hitButton').prop('disabled', true);
+        $('#standButton').prop('disabled', true);
       }
     }
   });
