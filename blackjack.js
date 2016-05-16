@@ -122,8 +122,6 @@ function dealCard(hand, element) {
   var card = deck[Math.floor(Math.random() * deck.length)];
   deck.pop(card);
   hand.push(card);
-  // card = deck.pop();
-  // hand.push(card);
   var url = '<img src="images/'+ card.name + '.png"/>';
   $(element).append(url);
 }
@@ -162,7 +160,6 @@ $(function() {
     checkForBust();
   });
 
-
   $('#hitButton').click(function() {
     dealCard(playerHand, '#playerHand')
     checkForBust();
@@ -174,7 +171,7 @@ $(function() {
       dealCard(dealerHand, '#dealerHand');
       dealerPoints = calculatePoints(dealerHand);
     }
-    if (!checkForBust());
+    if (checkForBust() === false);
       var playerPoints = calculatePoints(playerHand);
       var dealerPoints = calculatePoints(dealerHand);
       if (playerPoints > dealerPoints) {

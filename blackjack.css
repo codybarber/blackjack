@@ -4,7 +4,7 @@
   background: -webkit-radial-gradient(center, ellipse cover,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%); /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at center,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  border: sienna solid 20px;
+  border: saddlebrown solid 20px;
   border-radius: 50px;
   height: 600px;
   text-align: center;
@@ -20,7 +20,6 @@
   margin: auto;
   font-family: 'Trebuchet MS';
   text-shadow: 1px 1px 1px black;
-
 }
 
 #buttonPadding {
@@ -224,4 +223,6 @@ img {
 #messages {
   font-size: 2em;
   color: white;
+  text-shadow: 1px 1px 1px black;
+  font-family: 'Trebuchet MS';
 }
