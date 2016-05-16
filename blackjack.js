@@ -171,7 +171,7 @@ $(function() {
       dealCard(dealerHand, '#dealerHand');
       dealerPoints = calculatePoints(dealerHand);
     }
-    if (checkForBust() === false);
+    if (checkForBust() === false) {
       var playerPoints = calculatePoints(playerHand);
       var dealerPoints = calculatePoints(dealerHand);
       if (playerPoints > dealerPoints) {
@@ -181,6 +181,7 @@ $(function() {
       } else {
         $('#messages').text('You Lose!');
       }
+    }
   });
 
 });
