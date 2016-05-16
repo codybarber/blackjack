@@ -167,6 +167,8 @@ $(function() {
     checkForBust();
   });
 
+  var chips = 20;
+
   $('#standButton').click(function() {
     var dealerPoints = calculatePoints(dealerHand);
     while (dealerPoints < 17) {
