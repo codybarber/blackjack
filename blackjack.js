@@ -118,16 +118,13 @@ function resetGame() {
   $('#dealerHand').html("");
 }
 
-function getCardImageUrl() {
-  var url = '<img src="images/'+ card.value + '_of_' + card.suit + '.png"/>';
-  return url;
-}
-
 function dealCard(hand, element) {
-  var card;
-  card = deck.pop();
+  var card = deck[Math.floor(Math.random() * deck.length)];
+  deck.pop(card);
   hand.push(card);
-  var url = '<img src="images/'+ card.name + '.png"/>'
+  // card = deck.pop();
+  // hand.push(card);
+  var url = '<img src="images/'+ card.name + '.png"/>';
   $(element).append(url);
 }
 
