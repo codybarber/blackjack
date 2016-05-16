@@ -150,6 +150,9 @@ function checkForBust() {
   var dealerPoints = calculatePoints(dealerHand);
   if (dealerPoints > 21) {
     $('#messages').text("Dealer Busted! You Win!");
+    playerMoney++;
+    playerMoney++;
+    updateBank();
     $('#hitButton').prop('disabled', true);
     $('#standButton').prop('disabled', true);
     return true;
@@ -157,7 +160,12 @@ function checkForBust() {
   return false;
 }
 
+var playerMoney = 20;
+
+
 $(function() {
+
+  updateBank();
 
   $('#dealButton').click(function() {
     resetGame();
@@ -166,6 +174,8 @@ $(function() {
     dealCard(playerHand, '#playerHand');
     dealCard(dealerHand, '#dealerHand');
     checkForBust();
+    playerMoney--;
+    updateBank();
   });
 
   $('#hitButton').click(function() {
@@ -186,18 +196,27 @@ $(function() {
       var dealerPoints = calculatePoints(dealerHand);
       if (playerPoints > dealerPoints) {
         $('#messages').text('You Won!');
+        playerMoney++;
+        playerMoney++;
+        updateBank();
         $('#hitButton').prop('disabled', true);
         $('#standButton').prop('disabled', true);
       } else if (playerPoints === dealerPoints) {
         $('#messages').text('Push');
+        updateBank();
         $('#hitButton').prop('disabled', true);
         $('#standButton').prop('disabled', true);
       } else {
         $('#messages').text('You Lose!');
         $('#hitButton').prop('disabled', true);
         $('#standButton').prop('disabled', true);
+
       }
     }
   });
 
 });
+
+function updateBank() {
+  $('#money').text('Bankroll: $' + playerMoney);
+}
