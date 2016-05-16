@@ -140,12 +140,12 @@ function calculatePoints(hand) {
 function checkForBust() {
   var playerPoints = calculatePoints(playerHand);
   if (playerPoints > 21) {
-    $('#messages').text("BUSTED");
+    $('#messages').text("You Busted!");
     return true;
   }
   var dealerPoints = calculatePoints(dealerHand);
   if (dealerPoints > 21) {
-    $('#messages').text("Dealer Busted");
+    $('#messages').text("Dealer Busted! You Win!");
     return true;
   }
   return false;

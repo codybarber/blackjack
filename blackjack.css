@@ -22,6 +22,15 @@
   text-shadow: 1px 1px 1px black;
 }
 
+#padding2 {
+  width: 600px;
+  height: 15px;
+  text-align: center;
+  margin: auto;
+  font-family: 'Trebuchet MS';
+  text-shadow: 1px 1px 1px black;
+}
+
 #buttonPadding {
   width: 600px;
   height: 25px;
