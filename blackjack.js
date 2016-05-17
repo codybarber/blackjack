@@ -149,7 +149,7 @@ function checkForBust() {
   }
   var dealerPoints = calculatePoints(dealerHand);
   if (dealerPoints > 21) {
-    $('#messages').text("Dealer Busted! You Win!");
+    $('#messages').text("Dealer Busted! You Won!");
     playerMoney += 5;
     playerMoney += 5;
     updateBank();
@@ -207,7 +207,7 @@ $(function() {
         $('#hitButton').prop('disabled', true);
         $('#standButton').prop('disabled', true);
       } else {
-        $('#messages').text('You Lose!');
+        $('#messages').text('You Lost!');
         $('#hitButton').prop('disabled', true);
         $('#standButton').prop('disabled', true);
 
