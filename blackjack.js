@@ -1,3 +1,4 @@
+//Deck object with all 52 cards inside of it.
 var deck = [
   { name: 'twoSpades', value: 2, suit: 'spades' },
   { name: 'threeSpades', value: 3, suit: 'spades' },
@@ -53,9 +54,11 @@ var deck = [
   { name: 'aceHearts', value: 11, suit: 'hearts' }
 ];
 
+//Empty arrays declared for dealer and player hands to be dealt into
 var dealerHand = [];
 var playerHand = [];
 
+//Function used to reset entire game
 function resetGame() {
   deck = [
     { name: 'twoSpades', value: 2, suit: 'spades' },
@@ -122,6 +125,8 @@ function resetGame() {
   $('#standButton').prop('disabled', false);
 }
 
+
+//Function used to deal and remove random card from deck, while appending the image.
 function dealCard(hand, element) {
   var card = deck[Math.floor(Math.random() * deck.length)];
   deck.pop(card);
@@ -130,6 +135,7 @@ function dealCard(hand, element) {
   $(element).append(url);
 }
 
+//Function to calculate total points in player or dealer hands
 function calculatePoints(hand) {
   var sum = 0;
   for (var i =0; i < hand.length; i++) {
@@ -139,6 +145,7 @@ function calculatePoints(hand) {
   return sum;
 }
 
+//Function to check for a bust for both the player and dealer. If either is busted, it declares the winner accordingly, and disables the 'hit' and 'stand' buttons. Also increments the bankroll accordingly.
 function checkForBust() {
   var playerPoints = calculatePoints(playerHand);
   if (playerPoints > 21) {
@@ -160,9 +167,12 @@ function checkForBust() {
   return false;
 }
 
+
+//Variable declaring the amount of money the player starts with.
 var playerMoney = 500;
 
 
+//Main function controlling all of the click actions on the buttons and all of the functions attached to clicking them.
 $(function() {
 
   updateBank();
@@ -182,8 +192,6 @@ $(function() {
     dealCard(playerHand, '#playerHand')
     checkForBust();
   });
-
-  var chips = 20;
 
   $('#standButton').click(function() {
     var dealerPoints = calculatePoints(dealerHand);
@@ -217,6 +225,7 @@ $(function() {
 
 });
 
+//Function that updates the player's bankroll.
 function updateBank() {
   $('#money').text('Bankroll: $' + playerMoney);
 }
