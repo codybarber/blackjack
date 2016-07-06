@@ -13,7 +13,7 @@ A blackjack game created using HTML, a lot of CSS, JavaScript, and jQuery.
 
 Blackjack gameplay screenshot
 
-![Blackjack](images/grandslam.png)
+![Blackjack](images/blackjack.png)
 
 
 ##URL to live project
