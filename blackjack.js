@@ -127,7 +127,7 @@ function resetGame() {
 
 
 //Function used to deal and remove random card from deck, while appending the image.
-function dealCard(hand, element) {
+function dealCard(hand, element, holeCard) {
   var card = deck[Math.floor(Math.random() * deck.length)];
   deck.pop(card);
   hand.push(card);
@@ -189,7 +189,7 @@ $(function() {
   });
 
   $('#hitButton').click(function() {
-    dealCard(playerHand, '#playerHand')
+    dealCard(playerHand, '#playerHand');
     checkForBust();
   });
 
@@ -201,7 +201,7 @@ $(function() {
     }
     if (checkForBust() === false) {
       var playerPoints = calculatePoints(playerHand);
-      var dealerPoints = calculatePoints(dealerHand);
+      dealerPoints = calculatePoints(dealerHand);
       if (playerPoints > dealerPoints) {
         $('#messages').text('You Won!');
         playerMoney += 5;
